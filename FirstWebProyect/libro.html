@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Libro</title>
+  <!--Barra de menú, superior -->
+  <div class="bg-dark container-fluid">
+    <div class="d-flex justify-content-center row">
+      <nav style="padding-left: 25px;" class="navbar navbar-expand-lg navbar-dark bg-dark col-md-9">
+        <a class="navbar-brand ml-2" href="index.html"><span>
+            <img style="height: 25px; width: 25px; margin-right: 6px;" src="img/library128.png "></img>
+          </span> FTLibrary </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ml-2" id="itemRegistro">
+              <a class="nav-link" href="index.html" data-toggle="modal" data-target="#exampleModal">Registrarse<span
+                  class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ml-2" id="itemTipoLibro">
+              <a class="nav-link" href="tipoLibro.html">Tipos de libros</a>
+            </li>
+            <li class="nav-item ml-2" id="itemLibro">
+              <a class="nav-link " href="libro.html" tabindex="-1" aria-disabled="true">Libros</a>
+            </li>
+            <li class="nav-item ml-2" id="itemPrestamos">
+              <a class="nav-link " href="prestamos.html" tabindex="-1" aria-disabled="true">Prestar</a>
+            </li>
+            <li class="nav-item ml-2" id="itemMisPrestamos">
+              <a class="nav-link " href="misPrestamos.html" tabindex="-1" aria-disabled="true">Mis prestamos</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!--Foto y nombre del usuario logueado-->
+      <div id="divDatosUsu" style="visibility: hidden;"
+        class="text-white d-flex justify-content-center align-items-center bg-dark col-md-3">
+        <label id="lblNombreUsuario" onclick="enviarMiPerfil()" style="cursor: pointer;" class="mr-2 text:white">
+        </label>
+        <img id="imgFotoUsuario" onclick="enviarMiPerfil()" class="border border-ligth rounded-circle ml-2"
+          style="cursor: pointer;" src="img/Nouser.png" width="40" height="40">
+        </img>
+      </div>
+    </div>
+  </div>
+
+</head>
+
+<body>
+  <h5 style="text-align: center; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"
+    class="pt-2 pb-2 mb-2 bg-light d-block text-secondary border-top border-secondary">Pefil general de libros</h5>
+
+  <div class="row justify-content-center mt-4 mb-4" style="margin-left: 20px; margin-right: 20px;">
+    <button class="btn btn-outline-success col-md-2 ml-3 mr-3" data-toggle="modal" data-target="#exampleModal"
+      onclick="abrirModal(0)"><i class='fa fa-plus-square'> Agregar</i></button>
+
+    <div class="input-group mt-2 col-md-6">
+      <div class="input-group-prepend">
+        <button id="btnSeleccionIn" class="btn btn-outline-secondary dropdown-toggle" type="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccione un filtro</button>
+        <div class="dropdown-menu">
+          <label class="dropdown-item"
+            onclick="CambiarFiltro('Autor','btnSeleccionIn','filtroLibroIn','tablaLibro','Libro',new Array('','Libro','Autor'))">Autor</label>
+          <label class="dropdown-item"
+            onclick="CambiarFiltro(this,'btnSeleccionIn','filtroLibroIn','tablaLibro','Libro',new Array('','Libro','Autor'))"
+            href="#">Libro</label>
+        </div>
+      </div>
+      <input id="filtroLibroIn" type="text" class="form-control" aria-label="Text input with dropdown button"
+        onkeyup="CambiarFiltro(document.getElementById('btnSeleccionIn'),'btnSeleccionIn','filtroLibroIn','tablaLibro','Libro',new Array('','Libro','Autor'))">
+    </div>
+
+  </div>
+
+  <div id="divLibro" class="d-block m-auto">
+  </div>
+
+
+  <div class="modal fade border border-info" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="headModal" class="modal-header text-white text-bold bg-success">
+          <h5 class="modal-title" id="lblNuevoLibro">Agrengando libro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>ID libro:</label>
+            <input type="text" readonly id="txtidLibro" class="form-control limpiar" />
+            <label>Nombre de libro:</label>
+            <input type="text" id="txtNombreLibro" class="form-control limpiar" />
+            <label>Autor:</label>
+            <input type="text" id="txtAutorLibro" class="form-control limpiar" />
+            <label>Tipo de libro:</label>
+            <select id="cboTipoLibro" class="form-control limpiar"></select>
+            <label>Fecha de publicación:</label>
+            <input type="date" id="txtFechaPublicacion" class="form-control limpiar" />
+            <label>Número de páginas:</label>
+            <input type="number" id="txtNumeroPaginas" class="form-control limpiar" />
+            <label>Cantidad total de libros:</label>
+            <input type="number" id="txtCantidadLibros" class="form-control limpiar" />
+            <label>Foto libro:</label>
+            <img id="imgFotoLibro" width="180" height="210" class="d-block border border-primary rounded"
+              style="border: 1px;">
+            <input accept="image/*" type="file" style="color: dodgerblue; font-weight: 500;"
+              onchange="cambiarFoto(this)" id="fileFotoLibro"
+              class="form-control btn btn-block btn-light mt-2 mb-4 limpiar" />
+
+            <label class="mb-2">Archivo en PDF:</label>
+            <iframe id="iframePreview" width="380" height="380" class="mt-2 d-block border border-success "
+              src=""></iframe>
+            <input accept="application/pdf" type="file" style="color: mediumseagreen; font-weight: 600;"
+              onchange="subirArchivoPDF(this)" id="fileArchivoLibro"
+              class="form-control btn btn-block btn-light mt-2 mb-4 limpiar" />
+            <button type="button" id="btnDescargar" class="form-control btn btn-sm btn-secondary text-white"
+              onclick="descargarLibro()" value="Descargar"><i class='fa fa-download'> Descargar</i></button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" id="btnCancelar" class="btn btn-ligth border border-ligth" data-dismiss="modal"
+            value="Cancelar">
+          <input type="button" id="btnModalTL" onclick="GuardarLibro()" class="btn btn-success" value="Aceptar">
+        </div>
+        <div class="alert alert-danger" id="alertErrorLibro" style="display: none;" role="alert">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+  <script src="js/generic.js"></script>
+  <script src="js/libro.js"></script>
+</body>
+
+</html>

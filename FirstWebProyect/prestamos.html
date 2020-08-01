@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Prestamos</title>
+</head>
+<body>
+    <div class="bg-dark container-fluid">
+        <div class="d-flex justify-content-center row">
+          <nav style="padding-left: 25px;" class="navbar navbar-expand-lg navbar-dark bg-dark col-md-9">
+            <a class="navbar-brand ml-2" href="index.html"><span> 
+              <img style="height: 25px; width: 25px; margin-right: 6px;" src="img/library128.png "></img>
+            </span> FTLibrary </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item ml-2" id="itemRegistro">
+                  <a class="nav-link" href="index.html" data-toggle="modal" data-target="#exampleModal">Registrarse<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ml-2" id="itemTipoLibro">
+                  <a class="nav-link" href="tipoLibro.html">Tipos de libros</a>
+                </li>
+                <li class="nav-item ml-2" id="itemLibro">
+                  <a class="nav-link " href="libro.html" tabindex="-1" aria-disabled="true">Libros</a>
+                </li>
+                <li class="nav-item ml-2" id="itemPrestamos">
+                  <a class="nav-link " href="prestamos.html" tabindex="-1" aria-disabled="true">Prestar</a>
+                </li>
+                <li class="nav-item ml-2" id="itemMisPrestamos">
+                    <a class="nav-link " href="misPrestamos.html" tabindex="-1" aria-disabled="true">Mis prestamos</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+              <!--Foto y nombre del usuario logueado-->
+              <div id="divDatosUsu" style="visibility: hidden;" class="text-white d-flex justify-content-center align-items-center bg-dark col-md-3">
+                <label id="lblNombreUsuario" onclick="enviarMiPerfil()" style="cursor: pointer;" class="mr-2 text:white">
+                </label>
+                <img id="imgFotoUsuario" class="border border-ligth rounded-circle ml-2" onclick="enviarMiPerfil()" style="cursor: pointer;" src="img/Nouser.png" width="40" height="40">
+              </img>
+              </div>
+        </div>
+    </div>
+
+    <h5 style="text-align: center; font-weight: bold; font-family: Arial, Helvetica, sans-serif;" class="pt-2 pb-2 mb-2 bg-light d-block text-secondary border-top border-secondary">Prestamos</h5>
+
+    <div class="container-fluid">
+      <div id="divPrestamos" class="row mt-2 d-flex flex-direction-row justify-content-center">
+      </div>
+    </div>
+
+
+<!--    <div id="divLoading"
+    style="position: absolute; top:0; left:0; right: 0; width: 30%; height: 40%; margin: 0; background-image:url('img/refresh.png'); padding: 0; background-size: cover; background-position:center;">
+      background-color: turquoise;
+    </div>-->
+
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+    <script src="js/generic.js"></script>
+    <script src="js/prestamos.js"></script>
+    
+</body>
+</html>
