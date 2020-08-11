@@ -35,7 +35,7 @@ La carpeta FirstWebProyect contiene los archivos html para del sitio, además la
 **Previsualización de pantallas**
 
 Login por correo y social media -> movile: 
-![Login movile](https://firebasestorage.googleapis.com/v0/b/webfirstpro.appspot.com/o/ParaCompartirGithubRepository%2FLogin%20responsive.jpeg?alt=media&token=cd06d211-e2dc-422a-afb2-0f2ef99e0bbe) 
+![Login movile](https://firebasestorage.googleapis.com/v0/b/webfirstpro.appspot.com/o/ParaCompartirGithubRepository%2FLogin%20responsive.jpeg?alt=media&token=874f8532-f79a-4696-bc65-0b7f7414e391) 
 
 Agregar y editar un libro: 
 ![Add & edit book](https://firebasestorage.googleapis.com/v0/b/webfirstpro.appspot.com/o/ParaCompartirGithubRepository%2FAdd%20%26%20Edit%20book.png?alt=media&token=17bca348-6d4a-4e3c-8af6-e79bcee669ef)
