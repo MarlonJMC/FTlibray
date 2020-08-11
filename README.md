@@ -24,6 +24,7 @@ Aplicacion web de control básico de libreria.
 ## Prueba este código: ⚙️🖥️ 
 
 Ya sea que clones el repositorio o lo descargues como .zip. 
+La carpeta FirstWebProyect contiene los archivos html para del sitio, además las carpeta con el código JS y la carpeta con imagenes. 
 
 **Necesitaras** 
 1. crear un proyecto en Firebase, simplemente accedes con tu cuenta de google, vas a la consola y lo creas.
@@ -34,3 +35,4 @@ Ya sea que clones el repositorio o lo descargues como .zip.
 
 
 
+![Prestamos de libros](https://drive.google.com/drive/u/2/folders/1c64lz8DItUy1TX_yG_VYjUODCMR9kkFj) 
